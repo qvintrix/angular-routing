@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -17,8 +17,8 @@ export class EditLessonComponent implements OnInit {
     console.log(this.route.snapshot.queryParams);
 
     this.route.queryParams
-      .subscribe(queryParams => {
-        +queryParams.allowEdit ? this.allowEdit = true : this.allowEdit = false;
+      .subscribe((queryParams: Params) => {
+        this.allowEdit = Boolean(+queryParams.allowEdit);
         console.log(this.allowEdit);
       });
   }
