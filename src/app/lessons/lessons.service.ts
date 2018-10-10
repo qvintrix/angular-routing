@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Lesson } from './lesson.model';
-import { LessonsModule } from './lessons.module';
 
-@Injectable({
-  providedIn: LessonsModule
-})
+@Injectable()
 export class LessonsService {
 
   lessons: Lesson[] = [
@@ -32,7 +29,7 @@ export class LessonsService {
     return this.lessons;
   }
 
-  getLesson(id: number) {
+  getLesson(id: number): Lesson {
     const lesson = this.lessons.find(
       (lessonItem: Lesson) => {
         return lessonItem.id === id;

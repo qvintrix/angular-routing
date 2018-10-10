@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { LessonComponent } from './lesson/lesson.component';
 import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
 import { LessonsComponent } from './lessons.component';
+import { AuthGuardService } from '../auth-guard.service';
+import { LessonResolverService } from './lesson-resolver.service';
 
 const routes: Routes = [
-  { path: '', component: LessonsComponent },
-  { path: ':id', component: LessonComponent },
+  { path: '', component: LessonsComponent, canActivate: [AuthGuardService] },
+  { path: ':id', component: LessonComponent, resolve: { lesson: LessonResolverService } },
   { path: ':id/edit', component: EditLessonComponent }
 ];
 
