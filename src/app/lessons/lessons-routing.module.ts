@@ -8,9 +8,12 @@ import { AuthGuardService } from '../auth-guard.service';
 import { LessonResolverService } from './lesson-resolver.service';
 
 const routes: Routes = [
-  { path: '', component: LessonsComponent, canActivate: [AuthGuardService] },
-  { path: ':id', component: LessonComponent, resolve: { lesson: LessonResolverService } },
-  { path: ':id/edit', component: EditLessonComponent }
+  {
+    path: '', component: LessonsComponent, canActivate: [AuthGuardService], children: [
+      { path: ':id', component: LessonComponent, resolve: { lesson: LessonResolverService } },
+      { path: ':id/edit', component: EditLessonComponent }
+    ]
+  }
 ];
 
 @NgModule({

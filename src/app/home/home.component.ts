@@ -14,10 +14,10 @@ export class HomeComponent implements OnInit {
     private authService: AuthService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  goToLessons() {
+  public goToLessons() {
     this.router.navigate(['/lessons']);
   }
 

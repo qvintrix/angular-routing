@@ -12,13 +12,11 @@ export class LessonComponent implements OnInit {
 
   lesson: Lesson;
   constructor(
-    // private lessonsService: LessonsService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit() {
-    // this.lesson = this.lessonsService.getLesson(+this.route.snapshot.params['id']);
 
     this.route.data
       .subscribe(

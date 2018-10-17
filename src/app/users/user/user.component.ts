@@ -11,6 +11,7 @@ export class UserComponent implements OnInit, OnDestroy {
 
   user: User;
   subscription: any;
+
   constructor(
     private route: ActivatedRoute
   ) { }
