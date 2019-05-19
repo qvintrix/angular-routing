@@ -20,8 +20,4 @@ export class LessonsComponent implements OnInit {
     this.lessons = this.lessonsService.getLessons();
   }
 
-  reload() {
-    this.router.navigate(['lessons']);
-  }
-
 }
